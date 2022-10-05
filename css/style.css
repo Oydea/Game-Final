@@ -1,3 +1,8 @@
+body{
+    background-image: url(../imagens/background.jpg);
+    background-size: cover;
+}
+
 #hook {
     position: relative;
     top: 100%;
@@ -23,14 +28,14 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
-    background-image: url(../imagens/bg.png);
-    background-size: cover;
 }
 
 .fundo {
+    background-image: url(../imagens/bg.png);
+    background-size: cover;
     width: 100%;
     padding-top: 56.25%;
-    text-align: center;
+    text-align: center;  
 }
 #boat {
     position: absolute;
