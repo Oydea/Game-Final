@@ -13,6 +13,9 @@
 </head>
 
 <body>
+	<audio id="surprise" loop>
+		<source src="../surprise.mp3"></source>
+	</audio>
 	<div id="frame">
 		<div class="window">
 			<div class="fundo" id="fundo">
@@ -26,7 +29,7 @@
 					<div class="button" id="DropHook"></div>
 					<div class="button" id="MoveBRight"></div>
 				</div>
-				<div id="mensagem" class="hidden">AGUARDE O ANZOL VOLTAR PARA TENTAR DE NOVO.</div>
+				<div id="mensagem">Clique para começar o jogo.</div>
 				<div id="boat">
 					<div id="hook">
 						<div id="rope"></div>
@@ -37,6 +40,12 @@
 	</div>
 	<script>
 		//TIMER
+		function startgame(){
+		body.removeEventListener("click", startgame);
+		document.getElementById("surprise").play();
+		document.getElementById("mensagem").style.display = "none";
+		document.getElementById("mensagem").innerHTML = "AGUARDE O ANZOL VOLTAR PARA TENTAR DENOVO."
+		document.getElementById("botoes").style.display = "flex";
 		const timer = document.querySelector("#timer");
 		let timeSecond = 300;
 		displayTime(timeSecond);
@@ -60,7 +69,7 @@
 			document.getElementById("botoes").style.display = "none";
 			document.getElementById("mensagem").style.display = "flex";
 			game = "finished"
-		}
+		}}
 		//Make Boat move
 		let lmove = false;
 		let rmove = false;
@@ -85,11 +94,11 @@
 			}
 		}
 		function stop() {
-			if (movementr != NaN){
+			if (movementr != NaN) {
 				clearInterval(movementr);
 			}
-			if (movementl != NaN){
-			clearInterval(movementl);
+			if (movementl != NaN) {
+				clearInterval(movementl);
 			}
 			rmove = false;
 			lmove = false;
@@ -759,6 +768,8 @@
 		fish("green");
 		fish("white");
 		fish("black");
+		let body = document.querySelector("body");
+		body.addEventListener("click", startgame);
 	</script>
 </body>
 
